@@ -1,0 +1,62 @@
+WindowManager:
+    MainScreen:
+    AllInOneScreen:
+    SelectionScreen
+
+<MainScreen>:
+    name: 'menu'
+    BoxLayout:
+        orientation: 'vertical'
+        Image:
+            source: 'craft.jpg'
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, .1)
+            Button:
+                text: 'All in one'
+                on_press:
+                    root.manager.transition.direction = 'left'
+                    root.manager.current = 'one'
+
+<AllInOneScreen>:
+    name: 'one'
+    BoxLayout:
+        orientation: 'vertical'
+        Image:
+            source: 'craft.jpg'
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, .1)
+            Button:
+                text: 'Back'
+                on_press:
+                    root.manager.transition.direction = 'right'
+                    root.manager.current = 'menu'
+            Button:
+                text: 'Generate'
+                on_press:
+                    root.generate()
+                    root.manager.transition.direction = 'left'
+                    root.manager.current = 'selection'
+
+<SelectionScreen>:
+    skins_thumb: skin
+    name: 'selection'
+    BoxLayout:
+        orientation: 'vertical'
+        Image:
+            id: skin
+            source: 'Output/skins_thumb/1.png'
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, .1)
+            Button:
+                text: 'BAD'
+                on_press: root.bad()
+
+            Button:
+                text: 'GOOD'
+                on_press: root.good()
