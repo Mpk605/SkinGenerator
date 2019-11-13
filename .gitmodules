@@ -1,3 +1,0 @@
-[submodule "DCGAN-tensorflow"]
-	path = DCGAN-tensorflow
-	url = https://github.com/Mpk605/DCGAN-tensorflow
