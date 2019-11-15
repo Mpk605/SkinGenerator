@@ -25,8 +25,9 @@ Config.set('graphics', 'resizable', 0)
 
 class AllInOneScreen(Screen):
     def generate(self):
-        command = "python3 DCGAN-tensorflow/main.py --dataset=Rainbow --out_name='model' --input_height=64 --output_height=64 --input_fname_pattern=*.png --batch_size=30 --train=false --out_dir=./ --crop=false --visualize=true"
-        os.system(command)
+        # os.system('./clean.sh')
+        # os.system('python3 DCGAN-tensorflow/main.py --dataset=Rainbow --out_name="model" --input_height=64 --output_height=64 --input_fname_pattern=*.png --batch_size=30 --train=false --out_dir=./ --crop=false --visualize=true')
+        # os.system('mv model/samples/* Output/skin_racks/')
         os.system('python3 process.py')
 
 
@@ -39,6 +40,9 @@ class SelectionScreen(Screen):
         self.img_src = 'Output/skins_thumb/' + str(self.i) + '.png'
 
     def good(self):
+        print(self.img_src)
+        print(self.i)
+
         with open('Output/good_ones/good.txt', 'a+') as file:
             file.write(str(self.i) + '\n')
             file.close()

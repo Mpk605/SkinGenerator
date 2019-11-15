@@ -4,6 +4,7 @@ import os
 directory_str = 'Output/skin_racks/'
 out_dir = 'Output/skins/'
 out_thumb_dir = 'Output/skins_thumb/'
+
 directory = os.fsencode(directory_str)
 skin_id = 0
 
